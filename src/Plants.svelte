@@ -4,7 +4,7 @@
     let percFood;
     let trees;
 
-    export var items;
+    var plantItems = [];
 </script>
 
 <main>
@@ -17,27 +17,25 @@
     <label for="hasTrees">No</label>
     <input type="radio" id="treesNo" name="hasTrees" value="no" on:click={() => {
         hasTrees = false;
-        items = items.filter((e) => { return e.type !== "trees" });
-        items.push({
+        plantItems = plantItems.filter((e) => { return e.type !== "trees" });
+        plantItems.push({
             type: "trees",
             name: "Trees",
             id: "trees",
             value: 0
         })
-        console.log(items)
     }}>
     
     {#if hasTrees === true}
         <h3>How Many?</h3>
         <input type="range" id="trees" name="trees" min="1" max="200" bind:value={trees} on:click={()=>{
-            items = items.filter((e) => { return e.type !== "trees" });
-            items.push({
+            plantItems = plantItems.filter((e) => { return e.type !== "trees" });
+            plantItems.push({
                 type: "trees",
                 name: "Trees",
                 id: "trees",
                 value: (trees * -1)
             })
-            console.log(items)
         }}>
 
         {#if trees != undefined}
@@ -52,27 +50,25 @@
     <label for="hasGarden">No</label>
     <input type="radio" id="gardenYes" name="hasGarden" value="no" on:click={() => {
         hasGarden = false;
-        items = items.filter((e) => { return e.type !== "garden" });
-        items.push({
+        plantItems = plantItems.filter((e) => { return e.type !== "garden" });
+        plantItems.push({
             type: "garden",
             name: "Garden",
             id: "garden",
             value: 0
         })
-        console.log(items)
     }}>
     {#if hasGarden === true}
         <h3>What Percent of Your Food Do You Grow?</h3>
         <input type="range" id="percFood" name="percFood" min="1" max="100" bind:value={percFood} on:click={()=>{
 
-            items = items.filter((e) => { return e.type !== "garden" });
-            items.push({
+            plantItems = plantItems.filter((e) => { return e.type !== "garden" });
+            plantItems.push({
                 type: "garden",
                 name: "Garden",
                 id: "garden",
                 value: (( percFood / 100 ) * -1)
             })
-            console.log(items)
         }}>
         {#if percFood != undefined}
             <p>{percFood}</p>

@@ -68,7 +68,7 @@
         }
     ]
 
-    export var items;
+    var transItems = [];
 </script>
 
 <main>
@@ -76,14 +76,13 @@
     <form>
         <label for="miles-daily"><h3>Average Miles Driven Per Day</h3></label>
         <input type="range" id="miles-daily" name="miles-daily" min="0" max="200" bind:value={milesDaily} on:click={()=>{
-            items = items.filter((e) => { return e.type !== "miles" });
-            items.push({
+            transItems = transItems.filter((e) => { return e.type !== "miles" });
+            transItems.push({
                 type: "miles",
                 name: "Miles Daily",
                 id: "miles-daily",
                 value: (milesDaily * 1)
             })
-            console.log(items);
         }}>
 
         {#if milesDaily != undefined}
@@ -93,22 +92,20 @@
         {#each vehicles as {name, id}, i}
             <label for={id}>{name}</label>
             <input type="radio" id={id} name="vehicle-type" value={name} on:click={() => {
-                items = items.filter((e) => { return e.type !== "vehicle" });
-                items.push(vehicles[i]);
-                console.log(items);
+                transItems = transItems.filter((e) => { return e.type !== "vehicle" });
+                transItems.push(vehicles[i]);
             }}>
         {/each}
         <br>
         <label for="annual-flights"><h3>Average Time Flying Annually (Hours)</h3></label>
         <input type="range" id="annual-flights" name="annual-flights" min="0" max="500" bind:value={annualFlights} on:click={()=>{
-            items = items.filter((e) => { return e.type !== "flightTime" });
-            items.push({
+            transItems = transItems.filter((e) => { return e.type !== "flightTime" });
+            transItems.push({
                 type: "flightTime",
                 name: "Flight Time Annually",
                 id: "flight-time",
                 value: (annualFlights * 1)
             })
-            console.log(items)
         }}>
         {#if annualFlights != undefined}
             <p>{annualFlights}</p>
@@ -118,9 +115,8 @@
         {#each flights as {name, id}, i}
             <label for={id}>{name}</label>
             <input type="radio" id={id} name="flight-type" value={name} on:click={() => {
-                items = items.filter((e) => { return e.type !== "flight" });
-                items.push(flights[i]);
-                console.log(items);
+                transItems = transItems.filter((e) => { return e.type !== "flight" });
+                transItems.push(flights[i]);
             }}>
         {/each}
     </form>

@@ -44,7 +44,7 @@
         },
     ];
 
-    export var items;
+    var foodItems = [];
 </script>
 
 <main>
@@ -54,12 +54,11 @@
         <label for={id}>{name}</label><br>
         <input type="checkbox" id={id} name={name} bind:checked={isChecked} on:click={() => {
             if(isChecked === false){
-                items.push(foods[i]);
+                foodItems.push(foods[i]);
             }
             else{
-                // items = items.filter((e) => { return e.id !== id})
+                foodItems = foodItems.filter((e) => { return e.name !== name});
             }
-            console.log(items);
         }}>
     {/each}
 
