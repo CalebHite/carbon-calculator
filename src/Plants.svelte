@@ -3,6 +3,8 @@
     let trees;
     let hasGarden;
     let percFood;
+
+    export var amounts;
 </script>
 
 <main>

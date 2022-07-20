@@ -3,6 +3,8 @@
     let people;
     let hasPanels = false;
     let solarPanels;
+
+    export var amounts;
 </script>
 
 <main>
@@ -14,7 +16,7 @@
     }}>
     <label for="mobile-home">Mobile Home</label>
     <input type="radio" id="mobile-home" name="residence-type" value="mobile-home" on:click={() => {
-        residence = "mobile-home";
+        residence = "mobile-home";;
     }}>
     <label for="apartmentSmall">Apartment With 2-4 Units</label>
     <input type="radio" id="apartmentSmall" name="residence-type" value="apartmentSmall" on:click={() => {
@@ -39,8 +41,8 @@
         hasPanels = false;
     }}>
     {#if hasPanels === true}
-        <h3>How Many?</h3>
-        <input type="range" id="solar-panels" name="solar-panels" min="1" max="50" bind:value={solarPanels}>
+        <h3>What Percentage of Your Power is Produced by Your Solar Panels?</h3>
+        <input type="range" id="solar-panels" name="solar-panels" min="1" max="100" bind:value={solarPanels}>
         {#if solarPanels != undefined}
             <p>{solarPanels}</p>
         {/if}

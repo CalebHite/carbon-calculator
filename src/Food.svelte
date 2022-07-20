@@ -1,4 +1,6 @@
 <script>
+    export var amounts;
+
     let foodOptions = [
         {
             id: "food0",
