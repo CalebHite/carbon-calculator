@@ -1,53 +1,65 @@
 <script>
-    export var amounts;
-
-    let foodOptions = [
+    let foods = [
         {
+            type: "food",
             id: "food0",
             name: "Beef",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
         {
+            type: "food",
             id: "food1",
             name: "Dairy",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
         {
+            type: "food",
             id: "food2",
             name: "Pork",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
         {
+            type: "food",
             id: "food3",
             name: "Poultry",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
         {
+            type: "food",
             id: "food4",
             name: "Eggs",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
         {
+            type: "food",
             id: "food5",
             name: "Legumes/Vegetables/Fruits",
-            isChecked: false
+            isChecked: false,
+            value: 0
         },
     ];
-    var foods = [];
+
+    export var items;
 </script>
 
 <main>
     <h2>Food</h2>
     <h3>Which of These Foods Do You Eat Often?</h3>
-    {#each foodOptions as {id, name, isChecked}}
+    {#each foods as {id, name, isChecked}, i}
         <label for={id}>{name}</label><br>
         <input type="checkbox" id={id} name={name} bind:checked={isChecked} on:click={() => {
             if(isChecked === false){
-                foods.push(name);
+                items.push(foods[i]);
             }
             else{
-                foods = foods.filter((e) => { return e !== name })
+                // items = items.filter((e) => { return e.id !== id})
             }
+            console.log(items);
         }}>
     {/each}
 

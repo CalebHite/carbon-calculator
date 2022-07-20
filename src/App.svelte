@@ -8,17 +8,20 @@
 
 	const dispatch = createEventDispatcher();
 
-	var amounts = [];
+	var items = [];
 
+	function submit(){
+		console.log("hi");
+	}
 </script>
 
 <main>
 	<h1>Carbon Footprint Calculator</h1>
-	<Transportation {amounts}/>
-	<Energy {amounts} />
-	<Food {amounts}/>
-	<Plants {amounts}/>
-	<button type="submit">Submit Form</button>
+	<Transportation {items}/>
+	<Energy {items} />
+	<Food {items}/>
+	<Plants {items}/>
+	<button type="submit" on:click={submit}>Submit Form</button>
 </main>
 
 <style>

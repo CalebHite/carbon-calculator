@@ -1,10 +1,10 @@
 <script>
     let hasTrees = false;
-    let trees;
-    let hasGarden;
+    let hasGarden = false;
     let percFood;
+    let trees;
 
-    export var amounts;
+    export var items;
 </script>
 
 <main>
@@ -17,10 +17,29 @@
     <label for="hasTrees">No</label>
     <input type="radio" id="treesNo" name="hasTrees" value="no" on:click={() => {
         hasTrees = false;
+        items = items.filter((e) => { return e.type !== "trees" });
+        items.push({
+            type: "trees",
+            name: "Trees",
+            id: "trees",
+            value: 0
+        })
+        console.log(items)
     }}>
+    
     {#if hasTrees === true}
         <h3>How Many?</h3>
-        <input type="range" id="trees" name="trees" min="1" max="200" bind:value={trees}>
+        <input type="range" id="trees" name="trees" min="1" max="200" bind:value={trees} on:click={()=>{
+            items = items.filter((e) => { return e.type !== "trees" });
+            items.push({
+                type: "trees",
+                name: "Trees",
+                id: "trees",
+                value: (trees * -1)
+            })
+            console.log(items)
+        }}>
+
         {#if trees != undefined}
             <p>{trees}</p>
         {/if}
@@ -33,10 +52,28 @@
     <label for="hasGarden">No</label>
     <input type="radio" id="gardenYes" name="hasGarden" value="no" on:click={() => {
         hasGarden = false;
+        items = items.filter((e) => { return e.type !== "garden" });
+        items.push({
+            type: "garden",
+            name: "Garden",
+            id: "garden",
+            value: 0
+        })
+        console.log(items)
     }}>
     {#if hasGarden === true}
         <h3>What Percent of Your Food Do You Grow?</h3>
-        <input type="range" id="percFood" name="percFood" min="1" max="100" bind:value={percFood}>
+        <input type="range" id="percFood" name="percFood" min="1" max="100" bind:value={percFood} on:click={()=>{
+
+            items = items.filter((e) => { return e.type !== "garden" });
+            items.push({
+                type: "garden",
+                name: "Garden",
+                id: "garden",
+                value: (( percFood / 100 ) * -1)
+            })
+            console.log(items)
+        }}>
         {#if percFood != undefined}
             <p>{percFood}</p>
         {/if}
