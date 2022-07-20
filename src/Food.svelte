@@ -54,5 +54,7 @@
 </main>
 
 <style>
-
+    h2{
+        text-decoration-color: #FFB04A;
+    }
 </style>

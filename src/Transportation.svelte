@@ -69,4 +69,7 @@
 </main>
 
 <style>
+    h2{
+        text-decoration-color: #EF0079;
+    }
 </style>

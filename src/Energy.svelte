@@ -50,5 +50,7 @@
 </main>
 
 <style>
-    
+    h2{
+        text-decoration-color: #00BCCB;
+    }
 </style>
