@@ -3,6 +3,8 @@
     let vehicle;
     let annualFlights;
     let flightType;
+
+    export var amounts;
 </script>
 
 <main>
@@ -15,11 +17,15 @@
         {/if}
         <br>
         <h3>Vehicle Type</h3>
+        <label for="motorcycle">Motorcycle/3-Wheeler</label>
+        <input type="radio" id="motorcycle" name="vehicle-type" value="motorcycle" on:click={() => {
+            vehicle = "motorcycle";
+        }}>
         <label for="sedan">Sedan/Coupe/Hatchback</label>
         <input type="radio" id="sedan" name="vehicle-type" value="sedan" on:click={() => {
             vehicle = "sedan";
         }}>
-        <label for="suv">SUV/Minivan</label>
+        <label for="suv">SUV/SUC/Minivan</label>
         <input type="radio" id="suv" name="vehicle-type" value="suv" on:click={() => {
             vehicle = "suv";
         }}>
@@ -27,17 +33,17 @@
         <input type="radio" id="truck" name="vehicle-type" value="truck" on:click={() => {
             vehicle = "truck";
         }}>
-        <label for="motorcycle">Motorcycle/3-Wheeler</label>
-        <input type="radio" id="motorcycle" name="vehicle-type" value="motorcycle" on:click={() => {
-            vehicle = "motorcycle";
+        <label for="diesel">Diesel Vehicle</label>
+        <input type="radio" id="diesel" name="vehicle-type" value="diesel" on:click={() => {
+            vehicle = "diesel";
         }}>
         <label for="n/a">N/A</label>
         <input type="radio" id="n/a" name="vehicle-type" value="n/a" on:click={() => {
             vehicle = "n/a";
         }}>
         <br>
-        <label for="annual-flights"><h3>Average Time Flying Annually</h3></label>
-        <input type="range" id="annual-flights" name="annual-flights" min="0" max="100" bind:value={annualFlights}>
+        <label for="annual-flights"><h3>Average Time Flying Annually (Hours)</h3></label>
+        <input type="range" id="annual-flights" name="annual-flights" min="0" max="500" bind:value={annualFlights}>
         {#if annualFlights != undefined}
             <p>{annualFlights}</p>
         {/if}
