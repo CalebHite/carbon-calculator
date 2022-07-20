@@ -2,6 +2,7 @@
 	import Transportation from "./Transportation.svelte";
 	import Energy from "./Energy.svelte";
 	import Food from "./Food.svelte";
+	import Plants from "./Plants.svelte";
 </script>
 
 <main>
@@ -9,6 +10,7 @@
 	<Transportation />
 	<Energy />
 	<Food />
+	<Plants />
 </main>
 
 <style>
