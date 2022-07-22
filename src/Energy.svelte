@@ -51,7 +51,7 @@
                 $items = [...$items, residences[i]];  
             }
             else{
-                // energyItems = energyItems.filter((e) => { return e.type !== "residence" });
+                $items = $items.filter((e) => { return e.type !== "residence" });
                 $items = [...$items, residences[i]];    
             }
             residenceClicked = true;
@@ -69,7 +69,7 @@
             }]
         }
         else{
-            // energyItems = energyItems.filter((e) => { return e.type !== "people" });
+            $items = $items.filter((e) => { return e.type !== "people" });
             $items = [...$items, {
                 type: "people",
                 name: "People In Residence",
@@ -101,7 +101,7 @@
             }]
         }
         else{
-            // energyItems = energyItems.filter((e) => { return e.type !== "panels" });
+            $items = $items.filter((e) => { return e.type !== "panels" });
             $items = [...$items, {
                 type: "panels",
                 name: "Number of Solar Panels",
@@ -123,7 +123,7 @@
                 }]
             }
             else{
-                // energyItems = energyItems.filter((e) => { return e.type !== "panels" });
+                $items = $items.filter((e) => { return e.type !== "panels" });
                 $items = [...$items, {
                     type: "panels",
                     name: "Number of Solar Panels",

@@ -57,7 +57,7 @@
                 $items = [...$items, foods[i]];
             }
             else{
-                // foodItems = foodItems.filter((e) => { return e.name !== name});
+                $items = $items.filter((e) => { return e.name !== name});
             }
         }}>
     {/each}

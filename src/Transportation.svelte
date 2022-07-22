@@ -94,7 +94,7 @@
                 }];
             }
             else{
-                // transItems = transItems.filter((e) => { return e.type !== "miles" });
+                $items = $items.filter((e) => { return e.type !== "miles" });
                 $items = [...$items, {
                     type: "miles",
                     name: "Miles Daily",
@@ -118,7 +118,7 @@
                     vehicleClicked = true;
                 }
                 else{
-                    // transItems = transItems.filter((e) => { return e.type !== "vehicle" });
+                    $items = $items.filter((e) => { return e.type !== "vehicle" });
                     $items = [...$items, vehicles[i]];
                 }  
             }}>
@@ -128,7 +128,7 @@
 
         <label for="annual-flights"><h3>Average Time Flying Annually (Hours)</h3></label>
         <input type="range" id="annual-flights" name="annual-flights" min="0" max="500" bind:value={annualFlights} on:click={()=>{
-            // transItems = transItems.filter((e) => { return e.type !== "flightTime" });
+            $items = $items.filter((e) => { return e.type !== "flightTime" });
             $items = [...$items, {
                 type: "flightTime",
                 name: "Flight Time Annually",
@@ -147,7 +147,7 @@
         {#each flights as {name, id}, i}
             <label for={id}>{name}</label>
             <input type="radio" id={id} name="flight-type" value={name} on:click={() => {
-                // transItems = transItems.filter((e) => { return e.type !== "flight" });
+                $items = $items.filter((e) => { return e.type !== "flight" });
                 $items = [...$items, flights[i]];
             }}>
         {/each}

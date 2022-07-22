@@ -30,7 +30,7 @@
             }];
         }
         else{
-            // plantItems = plantItems.filter((e) => { return e.type !== "trees" });
+            $items = $items.filter((e) => { return e.type !== "trees" });
             $items = [...$items, {
                 type: "trees",
                 name: "Trees",
@@ -53,7 +53,7 @@
                 }]
             }
             else{
-                // plantItems = plantItems.filter((e) => { return e.type !== "trees" });
+                $items = $items.filter((e) => { return e.type !== "trees" });
                 $items = [...$items, {
                     type: "trees",
                     name: "Trees",
@@ -88,7 +88,7 @@
             }];
         }
         else{
-            // plantItems = plantItems.filter((e) => { return e.type !== "garden" });
+            $items = $items.filter((e) => { return e.type !== "garden" });
             $items = [...$items, {
                 type: "garden",
                 name: "Garden",
@@ -111,7 +111,7 @@
                 }];
             }
             else{
-                // plantItems = plantItems.filter((e) => { return e.type !== "garden" });
+                $items = $items.filter((e) => { return e.type !== "garden" });
                 $items = [...$items, {
                     type: "garden",
                     name: "Garden",
