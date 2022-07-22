@@ -1,4 +1,6 @@
 <script>
+    import { items } from "./stores.js";
+
     let residences = [{
             type: "residence",
             id: "house",
@@ -32,31 +34,52 @@
     let hasPanels = false;
     let solarPanels;
 
-    var energyItems = [];
+    let residenceClicked;
+    let peopleClicked;
+    let panelsClicked;
+
 </script>
 
 <main>
     <h2>Energy</h2>
-    <h3>Place of Residence</h3>
 
+    <h3>Place of Residence</h3>
     {#each residences as {name, id}, i}
         <label for={id}>{name}</label>
         <input type="radio" id={id} name="residence" value={name} on:click={() => {
-            energyItems = energyItems.filter((e) => { return e.type !== "residence" });
-            energyItems.push(residences[i]);        
+            if(residenceClicked === false){
+                $items = [...$items, residences[i]];  
+            }
+            else{
+                // energyItems = energyItems.filter((e) => { return e.type !== "residence" });
+                $items = [...$items, residences[i]];    
+            }
+            residenceClicked = true;
         }}>
     {/each}
 
     <h3>How Many People Live in Your Residence?</h3>
     <input type="range" id="residence" name="residence" min="1" max="10" bind:value={people} on:click={() => {
-        energyItems = energyItems.filter((e) => { return e.type !== "people" });
-        energyItems.push({
-            type: "people",
-            name: "People In Residence",
-            id: "people",
-            value: people
-        })
+        if(peopleClicked === false){
+            $items = [...$items, {
+                type: "people",
+                name: "People In Residence",
+                id: "people",
+                value: people
+            }]
+        }
+        else{
+            // energyItems = energyItems.filter((e) => { return e.type !== "people" });
+            $items = [...$items, {
+                type: "people",
+                name: "People In Residence",
+                id: "people",
+                value: people
+            }]
+        }
+        peopleClicked = true;
     }}>
+
     {#if people != undefined}
         <p>{people}</p>
     {/if}
@@ -69,24 +92,46 @@
     <label for="hasPanels">No</label>
     <input type="radio" id="panelsNo" name="hasPanels" value="no" on:click={() => {
         hasPanels = false;
-        energyItems = energyItems.filter((e) => { return e.type !== "panels" });
-        energyItems.push({
-            type: "panels",
-            name: "Number of Solar Panels",
-            id: "panels",
-            value: 0
-        })
+        if(panelsClicked === false){
+            $items = [...$items, {
+                type: "panels",
+                name: "Number of Solar Panels",
+                id: "panels",
+                value: 0
+            }]
+        }
+        else{
+            // energyItems = energyItems.filter((e) => { return e.type !== "panels" });
+            $items = [...$items, {
+                type: "panels",
+                name: "Number of Solar Panels",
+                id: "panels",
+                value: 0
+            }]
+        }
+        panelsClicked = true;
     }}>
     {#if hasPanels === true}
         <h3>What Percentage of Your Power is Produced by Your Solar Panels?</h3>
         <input type="range" id="solar-panels" name="solar-panels" min="1" max="100" bind:value={solarPanels} on:click={() => {
-            energyItems = energyItems.filter((e) => { return e.type !== "panels" });
-            energyItems.push({
-                type: "panels",
-                name: "Number of Solar Panels",
-                id: "panels",
-                value: ((solarPanels / 100) * 1)
-            })
+            if(panelsClicked === false){
+                $items = [...$items, {
+                    type: "panels",
+                    name: "Number of Solar Panels",
+                    id: "panels",
+                    value: ((solarPanels / 100) * 1)
+                }]
+            }
+            else{
+                // energyItems = energyItems.filter((e) => { return e.type !== "panels" });
+                $items = [...$items, {
+                    type: "panels",
+                    name: "Number of Solar Panels",
+                    id: "panels",
+                    value: ((solarPanels / 100) * 1)
+                }]
+            }
+            panelsClicked = true;
         }}>
         {#if solarPanels != undefined}
             <p>{solarPanels}</p>

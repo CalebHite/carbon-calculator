@@ -1,4 +1,6 @@
 <script>
+    import { items } from "./stores.js";
+
     let foods = [
         {
             type: "food",
@@ -43,8 +45,6 @@
             value: 0
         },
     ];
-
-    var foodItems = [];
 </script>
 
 <main>
@@ -54,10 +54,10 @@
         <label for={id}>{name}</label><br>
         <input type="checkbox" id={id} name={name} bind:checked={isChecked} on:click={() => {
             if(isChecked === false){
-                foodItems.push(foods[i]);
+                $items = [...$items, foods[i]];
             }
             else{
-                foodItems = foodItems.filter((e) => { return e.name !== name});
+                // foodItems = foodItems.filter((e) => { return e.name !== name});
             }
         }}>
     {/each}
