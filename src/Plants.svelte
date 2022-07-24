@@ -1,6 +1,5 @@
 <script>
     import { items } from "./stores.js";
-    // add in clicked check
 
     let hasTrees = false;
     let hasGarden = false;
@@ -49,7 +48,7 @@
                     type: "trees",
                     name: "Trees",
                     id: "trees",
-                    value: (trees * -1)
+                    value: (trees * -48)
                 }]
             }
             else{
@@ -58,7 +57,7 @@
                     type: "trees",
                     name: "Trees",
                     id: "trees",
-                    value: (trees * -1)
+                    value: (trees * -48)
                 }]
             }
             treesClicked = true;
@@ -107,7 +106,7 @@
                     type: "garden",
                     name: "Garden",
                     id: "garden",
-                    value: (( percFood / 100 ) * -1)
+                    value: (( percFood / 100 ) * -4000)
                 }];
             }
             else{
@@ -116,7 +115,7 @@
                     type: "garden",
                     name: "Garden",
                     id: "garden",
-                    value: (( percFood / 100 ) * -1)
+                    value: (( percFood / 100 ) * -4000)
                 }];
             }
             gardenClicked = true;

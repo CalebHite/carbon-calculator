@@ -7,42 +7,42 @@
             id: "food0",
             name: "Beef",
             isChecked: false,
-            value: 0
+            value: 804.22
         },
         {
             type: "food",
             id: "food1",
             name: "Dairy",
             isChecked: false,
-            value: 0
+            value: 298.08
         },
         {
             type: "food",
             id: "food2",
             name: "Pork",
             isChecked: false,
-            value: 0
+            value: 209.27
         },
         {
             type: "food",
             id: "food3",
             name: "Poultry",
             isChecked: false,
-            value: 0
+            value: 153.3
         },
         {
             type: "food",
             id: "food4",
             name: "Eggs",
             isChecked: false,
-            value: 0
+            value: 108.28
         },
         {
             type: "food",
             id: "food5",
             name: "Legumes/Vegetables/Fruits",
             isChecked: false,
-            value: 0
+            value: 337.625
         },
     ];
 </script>

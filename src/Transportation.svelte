@@ -1,49 +1,46 @@
 <script>
     import { items } from "./stores.js";
 
-    let milesDaily;
-    let annualFlights;
-
     let vehicles = [
         {
             type: "vehicle",
             name: "Motorcycle/3-Wheeler",
             id: "motorcycle",
-            value: 0,
+            value: 0.81,
             isClicked: false
         },
         {
             type: "vehicle",
             name: "Sedan/Coupe/Hatchback",
             id: "sedan",
-            value: 0,
+            value: 0.87,
             isClicked: false
         },
         {
             type: "vehicle",
             name: "SUV/SUC/Minivan",
             id: "suv",
-            value: 0,
+            value: .93,
             isClicked: false
         },
         {
             type: "vehicle",
             name: "Pickup Truck",
             id: "truck",
-            value: 0,
+            value: 0.88,
             isClicked: false
         },
         {
             type: "vehicle",
-            name: "Diesel Vehicle",
+            name: "Diesel Truck",
             id: "diesel",
-            value: 0,
+            value: 2.01,
             isClicked: false
         },
         {
             type: "vehicle",
-            name: "N/A",
-            id: "n/a",
+            name: "Walk/Bike/Skate",
+            id: "walk",
             value: 0,
             isClicked: false
         }
@@ -54,19 +51,19 @@
             type: "flight",
             name: "Economy",
             id: "economy",
-            value: 0
+            value: 158.73
         },
         {
             type: "flight",
             name: "Business",
             id: "business",
-            value: 0
+            value: 238.1
         },
         {
             type: "flight",
             name: "First Class",
             id: "first-class",
-            value: 0
+            value: 317.47
         },
         {
             type: "flight",
@@ -75,41 +72,29 @@
             value: 0
         }
     ]
-    
-    let milesClicked = false;
+
+    let milesDaily;
+    let annualFlights;
+
     let vehicleClicked = false;
+    let milesClicked = false;
+    let flightClicked = false;
+    let flyingClicked = false;
+
+    let vehicleEmissions = false;
+    let takenFlights = false;
+
+    let prevMiles = 1;
+    let prevFlight = 1;
 </script>
 
 <main>
 	<h2>Transportation</h2>
     <form>
-        <label for="miles-daily"><h3>Average Miles Driven Per Day</h3></label>
-        <input type="range" id="miles-daily" name="miles-daily" min="0" max="200" bind:value={milesDaily} on:click={()=>{
-            if(milesClicked === false){
-                $items = [...$items, {
-                    type: "miles",
-                    name: "Miles Daily",
-                    id: "miles-daily",
-                    value: (milesDaily * 1)
-                }];
-            }
-            else{
-                $items = $items.filter((e) => { return e.type !== "miles" });
-                $items = [...$items, {
-                    type: "miles",
-                    name: "Miles Daily",
-                    id: "miles-daily",
-                    value: (milesDaily * 1)
-                }];
-            }
-            milesClicked = true;
-        }}>
-        {#if milesDaily != undefined}
-            <p>{milesDaily}</p>
-        {/if}
 
         <br>
 
+        <h3>What Type of Transportation Do You Use Most Often?</h3>
         {#each vehicles as {name, id}, i}
             <label for={id}>{name}</label>
             <input type="radio" id={id} name="vehicle-type" value={name} on:click={() => {
@@ -120,37 +105,95 @@
                 else{
                     $items = $items.filter((e) => { return e.type !== "vehicle" });
                     $items = [...$items, vehicles[i]];
-                }  
+                }
+                
+                if(vehicles[i].id !== "walk"){
+                    vehicleEmissions = true;
+                }
+                else{
+                    vehicleEmissions = false;
+                }
+
+                vehicleClicked === true;
             }}>
         {/each}
 
-        <br>
+        {#if vehicleEmissions === true}
+            <label for="miles-daily"><h3>Average Miles Driven Per Day</h3></label>
+            <input type="range" id="miles-daily" name="miles-daily" min="1" max="200" bind:value={milesDaily} on:click={()=>{
+                if(milesClicked === false){
+                    for(let i = 0; i < vehicles.length; i++){
+                        vehicles[i].value *= (milesDaily * 365);
+                    }
+                }
+                else{
+                    for(let i = 0; i < vehicles.length; i++){
+                        vehicles[i].value /= (prevMiles * 365);
+                        vehicles[i].value *= (milesDaily * 365);
+                    }
+                    prevMiles = 1;
+                    prevMiles *= milesDaily; 
+                }
 
-        <label for="annual-flights"><h3>Average Time Flying Annually (Hours)</h3></label>
-        <input type="range" id="annual-flights" name="annual-flights" min="0" max="500" bind:value={annualFlights} on:click={()=>{
-            $items = $items.filter((e) => { return e.type !== "flightTime" });
-            $items = [...$items, {
-                type: "flightTime",
-                name: "Flight Time Annually",
-                id: "flight-time",
-                value: (annualFlights * 1)
-            }];
-        }}>
-
-        {#if annualFlights != undefined}
-            <p>{annualFlights}</p>
+                milesClicked = true;
+            }}>
+            
+            {#if milesDaily !== undefined}
+                <p>{milesDaily}</p>
+            {/if}
         {/if}
-
+    
         <br>
 
-        <h3>Flight Type</h3>
+        <h3>How Do You Fly Most Often?</h3>
+
         {#each flights as {name, id}, i}
             <label for={id}>{name}</label>
             <input type="radio" id={id} name="flight-type" value={name} on:click={() => {
-                $items = $items.filter((e) => { return e.type !== "flight" });
-                $items = [...$items, flights[i]];
+                if(flightClicked === false){
+                    $items = [...$items, flights[i]];
+                    flightClicked = true;
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "flight" });
+                    $items = [...$items, flights[i]];
+                }
+                
+                if(flights[i].id !== "n/a"){
+                    takenFlights = true;
+                }
+                else{
+                    takenFlights = false;
+                }
+
+                flightClicked === true;
             }}>
         {/each}
+
+        {#if takenFlights === true}
+            <label for="annual-flights"><h3>Average Time Flying Annually (Hours)</h3></label>
+            <input type="range" id="annual-flights" name="annual-flights" min="1" max="500" bind:value={annualFlights} on:click={()=>{
+                if(flyingClicked === false){
+                    for(let i = 0; i < flights.length; i++){
+                        flights[i].value *= annualFlights;
+                    }
+                }
+                else{
+                    for(let i = 0; i < flights.length; i++){
+                        flights[i].value /= prevFlight;
+                        flights[i].value *= annualFlights;
+                    }
+                    prevFlight = 1;
+                    prevFlight *= annualFlights; 
+                }
+
+                flyingClicked = true;
+            }}>
+
+            {#if annualFlights != undefined}
+                <p>{annualFlights}</p>
+            {/if}
+        {/if}
     </form>
 </main>
 
