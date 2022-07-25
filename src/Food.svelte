@@ -50,18 +50,21 @@
 <main>
     <h2>Food</h2>
     <h3>Which of These Foods Do You Eat Often?</h3>
-    {#each foods as {id, name, isChecked}, i}
-        <label for={id}>{name}</label><br>
-        <input type="checkbox" id={id} name={name} bind:checked={isChecked} on:click={() => {
-            if(isChecked === false){
-                $items = [...$items, foods[i]];
-            }
-            else{
-                $items = $items.filter((e) => { return e.name !== name});
-            }
-        }}>
+    <div class="options">
+        {#each foods as {id, name, isChecked}, i}
+        <div class="input">
+            <label for={id}>{name}</label><br>
+            <input type="checkbox" id={id} name={name} bind:checked={isChecked} on:click={() => {
+                if(isChecked === false){
+                    $items = [...$items, foods[i]];
+                }
+                else{
+                    $items = $items.filter((e) => { return e.name !== name});
+                }
+            }}>
+        </div>
     {/each}
-
+    </div>
 </main>
 
 <style>

@@ -13,100 +13,85 @@
 <main>
     <h2>Plants</h2>
     <h3>Do You Have Trees on Your Property?</h3>
-    <label for="hasTrees">Yes</label>
-    <input type="radio" id="treesYes" name="hasTrees" value="yes" on:click={() => {
-        hasTrees = true;
-    }}>
-    <label for="hasTrees">No</label>
-    <input type="radio" id="treesNo" name="hasTrees" value="no" on:click={() => {
-        hasTrees = false;
-        if(treesClicked === false){
-            $items = [...$items, {
-                type: "trees",
-                name: "Trees",
-                id: "trees",
-                value: 0
-            }];
-        }
-        else{
-            $items = $items.filter((e) => { return e.type !== "trees" });
-            $items = [...$items, {
-                type: "trees",
-                name: "Trees",
-                id: "trees",
-                value: 0
-            }];
-        }
-        treesClicked = true;
-    }}>
-    
-    {#if hasTrees === true}
-        <h3>How Many?</h3>
-        <input type="range" id="trees" name="trees" min="1" max="200" bind:value={trees} on:click={()=>{
-            if(treesClicked === false){
-                $items = [...$items, {
-                    type: "trees",
-                    name: "Trees",
-                    id: "trees",
-                    value: (trees * -48)
-                }]
-            }
-            else{
-                $items = $items.filter((e) => { return e.type !== "trees" });
-                $items = [...$items, {
-                    type: "trees",
-                    name: "Trees",
-                    id: "trees",
-                    value: (trees * -48)
-                }]
-            }
-            treesClicked = true;
-        }}>
+    <div class="options">
+        <div class="input">
+            <label for="hasTrees">Yes</label>
+            <input type="radio" id="treesYes" name="hasTrees" value="yes" on:click={() => {
+                hasTrees = true;
+            }}>
+        </div>
+        <div class="input">
+            <label for="hasTrees">No</label>
+            <input type="radio" id="treesNo" name="hasTrees" value="no" on:click={() => {
+                hasTrees = false;
+                if(treesClicked === false){
+                    $items = [...$items, {
+                        type: "trees",
+                        name: "Trees",
+                        id: "trees",
+                        value: 0
+                    }];
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "trees" });
+                    $items = [...$items, {
+                        type: "trees",
+                        name: "Trees",
+                        id: "trees",
+                        value: 0
+                    }];
+                }
+                treesClicked = true;
+            }}>
+        </div>
+    </div>
 
+    {#if hasTrees === true}
+        <div class="input">
+            <h3>How Many?</h3>
+                <input type="range" id="trees" name="trees" min="1" max="200" bind:value={trees} on:click={()=>{
+                if(treesClicked === false){
+                    $items = [...$items, {
+                        type: "trees",
+                        name: "Trees",
+                        id: "trees",
+                        value: (trees * -48)
+                    }]
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "trees" });
+                    $items = [...$items, {
+                        type: "trees",
+                        name: "Trees",
+                        id: "trees",
+                        value: (trees * -48)
+                    }]
+                }
+                treesClicked = true;
+            }}>
+        </div>
         {#if trees != undefined}
             <p>{trees}</p>
         {/if}
-
     {/if}
 
+
     <h3>Do You Own a Garden?</h3>
-    <label for="hasGarden">Yes</label>
-    <input type="radio" id="gardenYes" name="hasGarden" value="yes" on:click={() => {
-        hasGarden = true;
-    }}>
+    <div class="options">
+        <label for="hasGarden">Yes</label>
+        <input type="radio" id="gardenYes" name="hasGarden" value="yes" on:click={() => {
+            hasGarden = true;
+        }}>
 
-    <label for="hasGarden">No</label>
-    <input type="radio" id="gardenYes" name="hasGarden" value="no" on:click={() => {
-        hasGarden = false;
-        if(gardenClicked === false){
-            $items = [...$items, {
-                type: "garden",
-                name: "Garden",
-                id: "garden",
-                value: 0
-            }];
-        }
-        else{
-            $items = $items.filter((e) => { return e.type !== "garden" });
-            $items = [...$items, {
-                type: "garden",
-                name: "Garden",
-                id: "garden",
-                value: 0
-            }];
-        }
-        gardenClicked = true;
-    }}>
-
-    {#if hasGarden === true}
-        <h3>What Percent of Your Food Do You Grow?</h3>
-        <input type="range" id="percFood" name="percFood" min="1" max="100" bind:value={percFood} on:click={()=>{
+        <label for="hasGarden">No</label>
+        <input type="radio" id="gardenYes" name="hasGarden" value="no" on:click={() => {
+            hasGarden = false;
             if(gardenClicked === false){
                 $items = [...$items, {
                     type: "garden",
                     name: "Garden",
                     id: "garden",
-                    value: (( percFood / 100 ) * -4000)
+                    value: 0
                 }];
             }
             else{
@@ -115,14 +100,39 @@
                     type: "garden",
                     name: "Garden",
                     id: "garden",
-                    value: (( percFood / 100 ) * -4000)
+                    value: 0
                 }];
             }
             gardenClicked = true;
         }}>
+    </div>
 
+    {#if hasGarden === true}
+        <div class="options">
+            <h3>What Percent of Your Food Do You Grow?</h3>
+            <input type="range" id="percFood" name="percFood" min="1" max="100" bind:value={percFood} on:click={()=>{
+                if(gardenClicked === false){
+                    $items = [...$items, {
+                        type: "garden",
+                        name: "Garden",
+                        id: "garden",
+                        value: (( percFood / 100 ) * -4000)
+                    }];
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "garden" });
+                    $items = [...$items, {
+                        type: "garden",
+                        name: "Garden",
+                        id: "garden",
+                        value: (( percFood / 100 ) * -4000)
+                    }];
+                }
+                gardenClicked = true;
+            }}>
+        </div>
         {#if percFood != undefined}
-            <p>{percFood}</p>
+        <p>{percFood}</p>
         {/if}
     {/if}
 </main>

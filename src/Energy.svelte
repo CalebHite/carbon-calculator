@@ -44,85 +44,97 @@
     <h2>Energy</h2>
     
     <h3>How Many People Live in Your Residence?</h3>
-    <input type="range" id="residence" name="residence" min="1" max="10" bind:value={people} on:click={() => {
-        for(let i = 0; i < residences.length; i++){
-            residences[i].value *= prevPeople;
-            residences[i].value /= people;
-            prevPeople = 1;
-        }
-        prevPeople *= people;
-    }}>
+    <div class="options">
+        <input type="range" id="residence" name="residence" min="1" max="10" bind:value={people} on:click={() => {
+            for(let i = 0; i < residences.length; i++){
+                residences[i].value *= prevPeople;
+                residences[i].value /= people;
+                prevPeople = 1;
+            }
+            prevPeople *= people;
+        }}>
+    </div>
     {#if people != undefined}
         <p>{people}</p>
     {/if}
-
     {#if people !== undefined}
         <h3>Place of Residence</h3>
-
-        {#each residences as {name, id}, i}
-            <label for={id}>{name}</label>
-            <input type="radio" id={id} name="residence" value={name} on:click={() => {
-                if(residenceClicked === false){
-                    $items = [...$items, residences[i]];  
-                }
-                else{
-                    $items = $items.filter((e) => { return e.type !== "residence" });
-                    $items = [...$items, residences[i]];    
-                }
-                residenceClicked = true;
-            }}>
-        {/each}
+        <div class="options">
+            {#each residences as {name, id}, i}
+                <div class="input">
+                    <label for={id}>{name}</label>
+                    <input type="radio" id={id} name="residence" value={name} on:click={() => {
+                        if(residenceClicked === false){
+                            $items = [...$items, residences[i]];  
+                        }
+                        else{
+                            $items = $items.filter((e) => { return e.type !== "residence" });
+                            $items = [...$items, residences[i]];    
+                        }
+                        residenceClicked = true;
+                    }}>
+                </div>
+            {/each}
+        </div>
     {/if}
 
     <h3>Do You Own Solar Panels?</h3>
-    <label for="hasPanels">Yes</label>
-    <input type="radio" id="panelsYes" name="hasPanels" value="yes" on:click={() => {
-        hasPanels = true;
-    }}>
-    <label for="hasPanels">No</label>
-    <input type="radio" id="panelsNo" name="hasPanels" value="no" on:click={() => {
-        hasPanels = false;
-        if(panelsClicked === false){
-            $items = [...$items, {
-                type: "panels",
-                name: "Number of Solar Panels",
-                id: "panels",
-                value: 0
-            }]
-        }
-        else{
-            $items = $items.filter((e) => { return e.type !== "panels" });
-            $items = [...$items, {
-                type: "panels",
-                name: "Number of Solar Panels",
-                id: "panels",
-                value: 0
-            }]
-        }
-        panelsClicked = true;
-    }}>
+    <div class="options">
+        <div class="input">
+            <label for="hasPanels">Yes</label>
+            <input type="radio" id="panelsYes" name="hasPanels" value="yes" on:click={() => {
+                hasPanels = true;
+            }}>
+        </div>
+        <div class="input">
+            <label for="hasPanels">No</label>
+            <input type="radio" id="panelsNo" name="hasPanels" value="no" on:click={() => {
+                hasPanels = false;
+                if(panelsClicked === false){
+                    $items = [...$items, {
+                        type: "panels",
+                        name: "Number of Solar Panels",
+                        id: "panels",
+                        value: 0
+                    }]
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "panels" });
+                    $items = [...$items, {
+                        type: "panels",
+                        name: "Number of Solar Panels",
+                        id: "panels",
+                        value: 0
+                    }]
+                }
+                panelsClicked = true;
+            }}>
+        </div>
+    </div>
     {#if hasPanels === true}
-        <h3>What Percentage of Your Power is Produced by Your Solar Panels?</h3>
-        <input type="range" id="solar-panels" name="solar-panels" min="1" max="100" bind:value={solarPanels} on:click={() => {
-            if(panelsClicked === false){
-                $items = [...$items, {
-                    type: "panels",
-                    name: "Number of Solar Panels",
-                    id: "panels",
-                    value: ((solarPanels / 100) * -1422.4)
-                }]
-            }
-            else{
-                $items = $items.filter((e) => { return e.type !== "panels" });
-                $items = [...$items, {
-                    type: "panels",
-                    name: "Number of Solar Panels",
-                    id: "panels",
-                    value: ((solarPanels / 100) * -1422.4)
-                }]
-            }
-            panelsClicked = true;
-        }}>
+        <div class="input"> 
+            <h3>What Percentage of Your Power is Produced by Your Solar Panels?</h3>
+            <input type="range" id="solar-panels" name="solar-panels" min="1" max="100" bind:value={solarPanels} on:click={() => {
+                if(panelsClicked === false){
+                    $items = [...$items, {
+                        type: "panels",
+                        name: "Number of Solar Panels",
+                        id: "panels",
+                        value: ((solarPanels / 100) * -1422.4)
+                    }]
+                }
+                else{
+                    $items = $items.filter((e) => { return e.type !== "panels" });
+                    $items = [...$items, {
+                        type: "panels",
+                        name: "Number of Solar Panels",
+                        id: "panels",
+                        value: ((solarPanels / 100) * -1422.4)
+                    }]
+                }
+                panelsClicked = true;
+            }}>
+        </div>
         {#if solarPanels != undefined}
             <p>{solarPanels}</p>
         {/if}

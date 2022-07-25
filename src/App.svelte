@@ -25,7 +25,7 @@
 	<button type="submit" on:click={submit}>Submit Form</button>
 
 	{#if footprint !== undefined && footprint !== 1 && footprint !== -1}
-		<h1>You have a Carbon Footprint of {footprint} Grams Per Year</h1>
+		<h1>You have a Carbon Footprint of {footprint} Grams of CO2 Per Year</h1>
 	{:else if footprint !== undefined}
 		<h1>You have a Carbon Footprint of {footprint} Gram Per Year</h1>
 	{/if}
