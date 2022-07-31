@@ -25,33 +25,50 @@
 	<button type="submit" on:click={submit} id="submit">Submit Form</button>
 
 	{#if footprint !== undefined && footprint !== 1 && footprint !== -1}
-		<h1>You have a Carbon Footprint of {footprint} Grams of CO2 Per Year</h1>
+		<h1 id="result"><span>You have a Carbon Footprint of </span><br><span id="footprint">{footprint}</span><br><span> Grams of CO2 Per Year</span></h1>
 	{:else if footprint !== undefined}
-		<h1>You have a Carbon Footprint of {footprint} Gram Per Year</h1>
+		<h1 id="result"><span>You have a Carbon Footprint of </span><br><span id="footprint">{footprint}</span><br><span>Gram Per Year</span></h1>
 	{/if}
+
+	<br>
 
 </main>
 
 <style>
 	#submit{
-		margin-left: 690px;
+		margin-left: 695px;
 		margin-top: 5rem;
 		margin-bottom: 5rem;
 		background-color: #1c1d1f;
+		border-color: #1c1d1f;
 		color: white;
 		border-radius: 5px;
-		border-width: 1px;
+		border-width: 2px;
 		width: 500px;
 		height: 100px;
 		font-size: 2rem;
-		transition: .5s ease-in-out;
+		transition: .3s ease;
 	}
 	
 	#submit:hover{
-		transition: .5s ease-in-out;
-		background-color: rgb(47, 49, 49);
+		transition: .3s ease;
+		border-color: white;
 	}
-	#submit:active {
-		transform: translateY(4px);
+
+	#submit:active{
+		transform: translateY(5px);
+	}
+
+	#result{
+		margin-left: 695px;
+		background-color: #1c1d1f;
+		width: 500px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	#footprint{
+		font-size: 5rem;	
+		position: fixed;
 	}
 </style>

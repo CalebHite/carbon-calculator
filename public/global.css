@@ -8,6 +8,7 @@ html, body {
 
 #body {
 	background: #131415;
+	background-image: url("./real-carbon-fibre.png");
 	color: #333;
 	margin: 0;
 	padding: 8px;
@@ -94,24 +95,24 @@ button:focus {
 #card1{
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 690px;
+	margin-left: 695px;
 	margin-bottom: 20px;
 }
 #card2{
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 690px;
+	margin-left: 695px;
 	margin-bottom: 20px;
 }
 #card3{
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 690px;
+	margin-left: 695px;
 	margin-bottom: 20px;
 }
 #card4{
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 690px;
+	margin-left: 695px;
 	margin-bottom: 20px;
 }
