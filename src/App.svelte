@@ -37,7 +37,7 @@
 <style>
 	#submit{
 		position: relative;
-		left: 36.8%;
+		left: 37%;
 		margin-top: 5rem;
 		margin-bottom: 5rem;
 		background-color: #1c1d1f;

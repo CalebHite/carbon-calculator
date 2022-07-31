@@ -96,27 +96,31 @@ button:focus {
 	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	left: 36.8%;
+	left: 37%;
 	margin-bottom: 20px;
 }
 #card2{
 	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	left: 36.8%;
+	left: 37%;
 	margin-bottom: 20px;
 }
 #card3{
 	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	left: 36.8%;
+	left: 37%;
 	margin-bottom: 20px;
 }
 #card4{
 	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	left: 36.8%;
+	left: 37%;
 	margin-bottom: 20px;
+}
+
+.range-text{
+	text-align: center;
 }

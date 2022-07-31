@@ -60,7 +60,7 @@
                 }}>
             </div>
             {#if people != undefined}
-                <p>{people}</p>
+                <p class="range-text">{people}</p>
             {/if}
         </CardBody>
     </Card>
@@ -158,7 +158,7 @@
                     }}>
                 </div>
                 {#if solarPanels != undefined}
-                    <p>{solarPanels}</p>
+                    <p class="range-text">{solarPanels}</p>
                 {/if}
             </CardBody>
         </Card>

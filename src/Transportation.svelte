@@ -149,7 +149,7 @@
                         }}>
                 </div>
                 {#if milesDaily !== undefined}
-                    <p>{milesDaily}</p>
+                    <p class="range-text">{milesDaily}</p>
                 {/if}
             </CardBody>
         </Card>
@@ -212,7 +212,7 @@
                     }}>
                 </div>
                 {#if annualFlights != undefined}
-                    <p id="annualFlights">{annualFlights}</p>
+                    <p class="range-text">{annualFlights}</p>
                 {/if}
             </CardBody>
         </Card>

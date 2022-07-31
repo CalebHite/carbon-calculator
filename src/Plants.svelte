@@ -81,7 +81,7 @@ import { items } from "./stores.js";
                     }}>
                 </div>
                 {#if trees != undefined}
-                    <p>{trees}</p>
+                    <p class="range-text">{trees}</p>
                 {/if}
             </CardBody>
         </Card>
@@ -153,7 +153,7 @@ import { items } from "./stores.js";
                     }}>
                 </div>
                 {#if percFood != undefined}
-                <p>{percFood}</p>
+                <p class="range-text">{percFood}</p>
                 {/if}
             </CardBody>
         </Card>
