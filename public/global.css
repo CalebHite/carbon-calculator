@@ -6,13 +6,13 @@ html, body {
 	height: 100%;
 }
 
-body {
+#body {
+	background: #131415;
 	color: #333;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
 	font-family: 'Quicksand', sans-serif;
-	background: #131415;
 }
 
 a {
@@ -41,11 +41,16 @@ h1, h2, h3, h4, h5 {
 	color: #ffffff;
 }
 
+h1{
+	text-align: center;
+}
+
 h2{
 	font-size: 1.75rem;
 	text-decoration: underline;
 	text-decoration-style: dashed;
 	text-decoration-thickness: .25rem;
+	text-align: center;
 }
 
 .input[type=range] {
@@ -84,4 +89,29 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
+}
+
+#card1{
+	background-color: #1c1d1f;
+	width: 500px;
+	margin-left: 690px;
+	margin-bottom: 20px;
+}
+#card2{
+	background-color: #1c1d1f;
+	width: 500px;
+	margin-left: 690px;
+	margin-bottom: 20px;
+}
+#card3{
+	background-color: #1c1d1f;
+	width: 500px;
+	margin-left: 690px;
+	margin-bottom: 20px;
+}
+#card4{
+	background-color: #1c1d1f;
+	width: 500px;
+	margin-left: 690px;
+	margin-bottom: 20px;
 }
