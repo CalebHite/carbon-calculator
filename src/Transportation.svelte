@@ -223,4 +223,7 @@
     h2{
         text-decoration-color: #EF0079;
     }
+    input {
+        accent-color: #EF0079;
+    }
 </style>

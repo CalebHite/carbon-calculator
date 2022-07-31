@@ -79,4 +79,7 @@ import { items } from "./stores.js";
     h2{
         text-decoration-color: #FFB04A;
     }
+    input {
+        accent-color: #FFB04A;
+    }
 </style>

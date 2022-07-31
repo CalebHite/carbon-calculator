@@ -166,7 +166,11 @@
 </main>
 
 <style>
-    h2{
+    h2 {
         text-decoration-color: #00BCCB;
     }
+    input {
+        accent-color: #00BCCB;
+    }
+
 </style>
