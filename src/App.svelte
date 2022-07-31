@@ -36,7 +36,8 @@
 
 <style>
 	#submit{
-		margin-left: 695px;
+		position: relative;
+		left: 36.8%;
 		margin-top: 5rem;
 		margin-bottom: 5rem;
 		background-color: #1c1d1f;

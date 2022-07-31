@@ -54,9 +54,9 @@ h2{
 	text-align: center;
 }
 
-.input[type=range] {
-	-webkit-appearance: none; 
-	background-color: #131415; 
+input[type=range] {
+	position: relative;
+	left: 34%;
 }
 
 input, button, select, textarea {
@@ -93,26 +93,30 @@ button:focus {
 }
 
 #card1{
+	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 695px;
+	left: 36.8%;
 	margin-bottom: 20px;
 }
 #card2{
+	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 695px;
+	left: 36.8%;
 	margin-bottom: 20px;
 }
 #card3{
+	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 695px;
+	left: 36.8%;
 	margin-bottom: 20px;
 }
 #card4{
+	position: relative;
 	background-color: #1c1d1f;
 	width: 500px;
-	margin-left: 695px;
+	left: 36.8%;
 	margin-bottom: 20px;
 }
