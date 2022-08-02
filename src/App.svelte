@@ -22,19 +22,25 @@
 	<Energy />
 	<Food />
 	<Plants />
-	<button type="submit" on:click={submit} id="submit">Submit Form</button>
+	<button type="submit" on:click={submit} id="submit">Submit Answers</button>
 
 	{#if footprint !== undefined && footprint !== 1 && footprint !== -1}
 		<h1 id="result"><span>You have a Carbon Footprint of </span><br><span id="footprint">{footprint}</span><br><span> Grams of CO2 Per Year</span></h1>
 	{:else if footprint !== undefined}
 		<h1 id="result"><span>You have a Carbon Footprint of </span><br><span id="footprint">{footprint}</span><br><span>Gram Per Year</span></h1>
-	{/if}
+	{/if}	
 
 	<br>
+
+	<a id="sources" href="https://linktr.ee/carbonsources">Sources</a>
 
 </main>
 
 <style>
+	h1{
+		font-size: 3rem;
+	}
+
 	#submit{
 		position: relative;
 		left: 37%;
@@ -69,7 +75,16 @@
 	}
 
 	#footprint{
-		font-size: 5rem;	
-		position: fixed;
+		font-size: 5rem;
+	}
+
+	#sources{
+		color: #35373b;
+		font-size: 2rem;
+		text-decoration: none;
+	}
+
+	#sources:hover{
+		color: white;
 	}
 </style>
