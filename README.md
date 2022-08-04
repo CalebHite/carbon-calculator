@@ -1,9 +1,7 @@
 # Carbon Calculator
----
 This is an individual carbon footprint calculator made for the ASDI Global Hackathon.
 
 ## Instructions for Running
----
 To run the project in dev mode please use:<br>
 `npm run dev`
 
@@ -17,6 +15,5 @@ To run using `docker-compose` use:<br>
 `docker-compose up -d`
 
 ## Demo
----
 Web link via Heroku:
 https://quiet-ocean-11475.herokuapp.com/
