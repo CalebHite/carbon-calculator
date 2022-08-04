@@ -1,10 +1,12 @@
 # Carbon Calculator
-To run the project in dev mode please use:
+To run the project in dev mode please use:<br>
 `npm run dev`
 
-To build the project for release please use:
+To build the project for release please use:<br>
 `npm run build`
 
-To build the docker container use the provided `Dockerfile`
+To build the docker container use the provided Dockerfile:<br>
+`Dockerfile`
 
-To run using `docker-compose` use `docker-compose up -d`
+To run using `docker-compose` use:<br>
+`docker-compose up -d`
