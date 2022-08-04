@@ -10,3 +10,6 @@ To build the docker container use the provided Dockerfile:<br>
 
 To run using `docker-compose` use:<br>
 `docker-compose up -d`
+
+Web link via Heroku:
+https://quiet-ocean-11475.herokuapp.com/
