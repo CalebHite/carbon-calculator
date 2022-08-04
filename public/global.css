@@ -49,8 +49,7 @@ h1{
 h2{
 	font-size: 1.75rem;
 	text-decoration: underline;
-	text-decoration-style: dashed;
-	text-decoration-thickness: .25rem;
+	text-decoration-thickness: .3rem;
 	text-align: center;
 }
 
