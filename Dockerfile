@@ -17,5 +17,6 @@ EXPOSE 5000
 
 ENV HOST=0.0.0.0
 
+ENTRYPOINT [CMD]
 CMD [ "npm", "start" ]
 
